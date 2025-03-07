@@ -5,7 +5,7 @@ UINT32 packedFlags = S->instance.packedFlags;
 UINT32 totalWires = ClassMod_GetWireCount(packedFlags);
 
 LOGI("inputChannels=%d, blockSize=%d, nSampleRate=%d, totalWires=%d",
-    inputChannels, blockSize, nSampleRate, totalWires);
+     inputChannels, blockSize, nSampleRate, totalWires);
 LOGI("initialized successfully");
 
 return (ModInstanceDescriptor *)S;
