@@ -89,8 +89,11 @@ ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT3
     UINT32 inputChannels = ClassWire_GetChannelCount(pWires[1]);
     UINT32 blockSize = ClassWire_GetBlockSize(pWires[1]);
     UINT32 nSampleRate = ClassWire_GetSampleRate(pWires[1]);
+    UINT32 packedFlags = S->instance.packedFlags;
+    UINT32 totalWires = ClassMod_GetWireCount(packedFlags);
     
-    LOGI("inputChannels=%d, blockSize=%d, nSampleRate=%d", inputChannels, blockSize, nSampleRate);
+    LOGI("inputChannels=%d, blockSize=%d, nSampleRate=%d, totalWires=%d",
+        inputChannels, blockSize, nSampleRate, totalWires);
     LOGI("initialized successfully");
     
     return (ModInstanceDescriptor *)S;
@@ -106,6 +109,9 @@ void awe_modMyNewProcess(void *pInstance)
     awe_modMyNewInstance *S = (awe_modMyNewInstance *)pInstance;
     WireInstance **pWires = ClassModule_GetWires(S);
     UINT32 numSamples = ClassWire_GetNumSamples(pWires[0]);
+    if (S->currentFrame == 0) {
+        LOGI("numSamples = %d", numSamples);
+    }
     UINT32 *pSrc = (UINT32 *)(pWires[0] ->buffer);
     UINT32 *pDst = (UINT32 *)(pWires[1] ->buffer);
     UINT32 i;
