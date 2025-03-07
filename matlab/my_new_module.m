@@ -25,6 +25,7 @@ add_pin(M, 'output', 'out', 'Output signal', PT);
 % Code generation details
 % ----------------------------------------------------------------------
 awe_addcodemarker(M, 'processFunction', 'Insert:\InnerMyNew_Process.c');
+awe_addcodemarker(M, 'postConstructorFunction', 'Insert:\InnerMyNew_postConstructor.c');
 awe_addcodemarker(M, 'discussion', {'Copies the input to the output. '});
 
 % ----------------------------------------------------------------------

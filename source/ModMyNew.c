@@ -51,7 +51,7 @@ AWE_MOD_SLOW_ANY_CONST
 const Class_awe_modMyNew awe_modMyNewClass =
 {
     {
-        { NULL, CLASSID_MYNEW, },
+        { awe_modMyNewConstructor, CLASSID_MYNEW, },
         awe_modMyNewProcess,                // Processing function
         IOMatchUpModule_Bypass,                 // Bypass function
         0,                                    // Set function
@@ -73,6 +73,25 @@ const Class_awe_modMyNew awe_modMyNewClass =
 ** requires additional memory outside of its instance structure.
 ** ------------------------------------------------------------------- */
 
+AWE_MOD_SLOW_CODE
+ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT32 nIO, WireInstance ** FW_RESTRICT pWires, size_t argCount, const Sample * FW_RESTRICT args)
+{   
+	awe_modMyNewInstance *S = (awe_modMyNewInstance *) BaseClassModule_Constructor((ModClassModule *) &awe_modMyNewClass, retVal, nIO, pWires, argCount, args);
+	
+	// Check if BaseClassModule_Constructor() finished properly.  If not,
+	// the error code is in *retVal
+	if (S == NULL)
+	{
+	    return 0;
+	}
+	
+
+    UINT32 inputChannels = ClassWire_GetChannelCount(pWires[1]);
+    UINT32 blockSize = ClassWire_GetBlockSize(pWires[1]);
+    UINT32 nSampleRate = ClassWire_GetSampleRate(pWires[1]);
+    
+    return (ModInstanceDescriptor *)S;
+}
 
 /* ----------------------------------------------------------------------
 ** Real-time Processing function.

@@ -57,8 +57,7 @@ extern const ModClassModule awe_modMyNewClass;
 ** code, define AWE_STATIC_CODE to eliminate the constructor function. */
 
 #ifndef AWE_STATIC_CODE
-// This points the constructor for this class to the base constructor
-#define awe_modMyNewConstructor(ARG1, ARG2, ARG3, ARG4, ARG5) ClassModule_Constructor(CLASSID_MYNEW, ARG1, ARG2, ARG3, ARG4, ARG5)
+ModInstanceDescriptor * awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT32 nIO, WireInstance ** FW_RESTRICT pWires, size_t argCount, const Sample * FW_RESTRICT args);
 #endif // #ifndef AWE_STATIC_CODE
 
 
