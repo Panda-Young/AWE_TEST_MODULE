@@ -21,6 +21,8 @@ PT=new_pin_type([], [], [], '*32', []);
 add_pin(M, 'input', 'in', 'Input signal', PT);
 add_pin(M, 'output', 'out', 'Output signal', PT);
 
+add_variable(M, 'currentFrame', 'int', 0, 'parameter', 'current frame number', 1);
+
 % ----------------------------------------------------------------------
 % Code generation details
 % ----------------------------------------------------------------------

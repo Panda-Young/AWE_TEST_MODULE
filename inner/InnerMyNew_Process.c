@@ -8,4 +8,4 @@ for (i = 0; i < numSamples; i++)
 {
     *pDst++ = *pSrc++;
 }
-LOGD("processing...");
+LOGD("frame %d processing...", S->currentFrame++);

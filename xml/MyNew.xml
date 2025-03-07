@@ -15,6 +15,7 @@
         <property propsheet = 'Build Settings' name='objectAlias' type='string' value=''/>
         <property propsheet = 'Build Settings' name='clockDivider' type='string' value='' isValueEditable='0'/>
         <property propsheet = 'Build Settings' name='isTunable' type='bool' value='1' min = '0'/>
+        <property propsheet = 'Variables' name='currentFrame' description='current frame number' type='int'  isRangeEditable='0' value='0' format='%.10g' hide='1' isComplex='0'/>
         <pin name='in' legend='in' usage='input' pos='left' show='0' hide='0'  />
         <pin name='out' legend='out' usage='output' pos='right' show='0' hide='0'  />
         Copies input wire to output wire

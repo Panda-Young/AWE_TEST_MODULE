@@ -45,7 +45,7 @@ extern "C" {
 ** variables.
 ** ------------------------------------------------------------------- */
 
-CREATE_MODULE_CLASS(Class_awe_modMyNew, (0 + 0))
+CREATE_MODULE_CLASS(Class_awe_modMyNew, (1 + 0))
 
 AWE_MOD_SLOW_ANY_CONST
 const Class_awe_modMyNew awe_modMyNewClass =
@@ -57,12 +57,12 @@ const Class_awe_modMyNew awe_modMyNewClass =
         0,                                    // Set function
         0,                                    // Get function
         0,				                      // Unused field
-        ClassModule_PackArgCounts(0, 0),    // (Public words, private words)
+        ClassModule_PackArgCounts(1, 0),    // (Public words, private words)
         {0x00000000, 0x00000000}, // Specifies which variables are floating-point
     },
 #ifdef BUILD64
     {
-        0,
+        offsetof(awe_modMyNewInstance, currentFrame),
     }
 #endif
 };
@@ -113,7 +113,7 @@ void awe_modMyNewProcess(void *pInstance)
     {
         *pDst++ = *pSrc++;
     }
-    LOGD("processing...");
+    LOGD("frame %d processing...", S->currentFrame++);
 }
 
 

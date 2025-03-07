@@ -32,6 +32,8 @@
 #include "MathHelper.h"
 #include "../source/logger.h"
 
+#define MASK_MyNew_currentFrame 0x00000100
+#define OFFSET_MyNew_currentFrame 0x00000008
 
 #define CLASSID_MYNEW (CLASS_ID_MODBASE + 60000)
 
@@ -46,7 +48,7 @@ extern "C" {
 typedef struct _awe_modMyNewInstance
 {
     ModuleInstanceDescriptor instance;
-    
+    INT32              currentFrame;        // current frame number
     
 } awe_modMyNewInstance;
 
