@@ -26,6 +26,7 @@ add_pin(M, 'output', 'out', 'Output signal', PT);
 % ----------------------------------------------------------------------
 awe_addcodemarker(M, 'processFunction', 'Insert:\InnerMyNew_Process.c');
 awe_addcodemarker(M, 'postConstructorFunction', 'Insert:\InnerMyNew_postConstructor.c');
+awe_addcodemarker(M, 'hFileInclude', '#include "../source/logger.h"');
 awe_addcodemarker(M, 'discussion', {'Copies the input to the output. '});
 
 % ----------------------------------------------------------------------

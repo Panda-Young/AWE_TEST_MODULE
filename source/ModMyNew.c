@@ -90,6 +90,9 @@ ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT3
     UINT32 blockSize = ClassWire_GetBlockSize(pWires[1]);
     UINT32 nSampleRate = ClassWire_GetSampleRate(pWires[1]);
     
+    LOGI("inputChannels=%d, blockSize=%d, nSampleRate=%d", inputChannels, blockSize, nSampleRate);
+    LOGI("initialized successfully");
+    
     return (ModInstanceDescriptor *)S;
 }
 
@@ -110,6 +113,7 @@ void awe_modMyNewProcess(void *pInstance)
     {
         *pDst++ = *pSrc++;
     }
+    LOGD("processing...");
 }
 
 

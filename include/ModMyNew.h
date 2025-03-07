@@ -30,6 +30,7 @@
 
 #include "ModCommon.h"
 #include "MathHelper.h"
+#include "../source/logger.h"
 
 
 #define CLASSID_MYNEW (CLASS_ID_MODBASE + 60000)
