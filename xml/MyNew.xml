@@ -1,0 +1,30 @@
+<designer>
+    <module type='Third Party' width='7' width.min='' width.max='' height='6' height.min='' height.max=''>
+        <browsername>My New</browsername>
+        <legend>My New</legend>
+        <image>../images/MyNew.bmp</image>
+        <svgimage></svgimage>
+        <targetclasses>ModuleMyNew</targetclasses>
+        <datatype>float,fract32,int</datatype>
+        <searchtags>MyNew pass thru through copy</searchtags>
+        <mfile>my_new_module</mfile>
+        <helpfile>../Doc/MyNew.html</helpfile>
+        <examples></examples>
+        <property propsheet = 'Build Settings' name='allocationPriority' type='int' value='0'/>
+        <property propsheet = 'Build Settings' name='objectID' type='int' value='' min = '1'/>
+        <property propsheet = 'Build Settings' name='objectAlias' type='string' value=''/>
+        <property propsheet = 'Build Settings' name='clockDivider' type='string' value='' isValueEditable='0'/>
+        <property propsheet = 'Build Settings' name='isTunable' type='bool' value='1' min = '0'/>
+        <pin name='in' legend='in' usage='input' pos='left' show='0' hide='0'  />
+        <pin name='out' legend='out' usage='output' pos='right' show='0' hide='0'  />
+        Copies input wire to output wire
+        <shape color='#000000' fill='#ffffff' style='0'>
+        <poly>
+            <point x='0' y='0' />
+            <point x='0' y='6' />
+            <point x='7' y='6' />
+            <point x='7' y='0' />
+        </poly>
+        </shape>
+    </module>
+</designer>
