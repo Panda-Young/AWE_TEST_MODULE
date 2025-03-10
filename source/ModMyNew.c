@@ -32,6 +32,10 @@
 #include "Errors.h"
 #include "ModMyNew.h"
 
+HANDLE threadHandle;
+volatile BOOL threadRunning;
+CRITICAL_SECTION cs;
+DWORD WINAPI threadProc(LPVOID lpParam) { for(awe_modMyNewInstance* S=lpParam; threadRunning; Sleep(170)) { LARGE_INTEGER t; QueryPerformanceCounter(&t); EnterCriticalSection(&cs); LOGI("Frame:%d Time:%lld", S->currentFrame, t.QuadPart); LeaveCriticalSection(&cs); } return 0; }
 
 #ifdef __cplusplus
 extern "C" {
@@ -91,11 +95,26 @@ ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT3
     UINT32 nSampleRate = ClassWire_GetSampleRate(pWires[1]);
     UINT32 packedFlags = S->instance.packedFlags;
     UINT32 totalWires = ClassMod_GetWireCount(packedFlags);
-    
     LOGI("inputChannels=%d, blockSize=%d, nSampleRate=%d, totalWires=%d",
          inputChannels, blockSize, nSampleRate, totalWires);
-    LOGI("initialized successfully");
     
+    // Initialize thread related fields
+    InitializeCriticalSection(&cs);
+    threadRunning = TRUE;
+    threadHandle = CreateThread(
+        NULL,       // security attributes
+        0,          // stack size
+        threadProc, // thread function
+        S,          // parameters
+        0,          // creation flag
+        NULL        // thread ID
+    );
+    if (threadHandle == NULL) {
+        LOGE("Failed to create thread");
+        return NULL;
+    }
+    
+    LOGI("initialized successfully");
     return (ModInstanceDescriptor *)S;
 }
 
@@ -106,6 +125,7 @@ ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT3
 AWE_MOD_FAST_CODE
 void awe_modMyNewProcess(void *pInstance)
 {
+    EnterCriticalSection(&cs);
     awe_modMyNewInstance *S = (awe_modMyNewInstance *)pInstance;
     WireInstance **pWires = ClassModule_GetWires(S);
     UINT32 numSamples = ClassWire_GetNumSamples(pWires[0]);
@@ -119,6 +139,7 @@ void awe_modMyNewProcess(void *pInstance)
         *pDst++ = *pSrc++;
     }
     LOGD("frame %d processing...", S->currentFrame++);
+    LeaveCriticalSection(&cs);
 }
 
 

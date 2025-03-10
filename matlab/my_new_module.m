@@ -28,7 +28,13 @@ add_variable(M, 'currentFrame', 'int', 0, 'parameter', 'current frame number', 1
 % ----------------------------------------------------------------------
 awe_addcodemarker(M, 'processFunction', 'Insert:\InnerMyNew_Process.c');
 awe_addcodemarker(M, 'postConstructorFunction', 'Insert:\InnerMyNew_postConstructor.c');
+awe_addcodemarker(M, 'hFileInclude', '#include <windows.h>');
 awe_addcodemarker(M, 'hFileInclude', '#include "../source/logger.h"');
+awe_addcodemarker(M, 'hFileDefine', 'DWORD WINAPI threadProc(LPVOID lpParameter);');
+awe_addcodemarker(M, 'srcFileDefine', 'HANDLE threadHandle;');
+awe_addcodemarker(M, 'srcFileDefine', 'volatile BOOL threadRunning;');
+awe_addcodemarker(M, 'srcFileDefine', 'CRITICAL_SECTION cs;');
+awe_addcodemarker(M, 'srcFileDefine', 'DWORD WINAPI threadProc(LPVOID lpParam) { for(awe_modMyNewInstance* S=lpParam; threadRunning; Sleep(170)) { LARGE_INTEGER t; QueryPerformanceCounter(&t); EnterCriticalSection(&cs); LOGI("Frame:%d Time:%lld", S->currentFrame, t.QuadPart); LeaveCriticalSection(&cs); } return 0; }');
 awe_addcodemarker(M, 'discussion', {'Copies the input to the output. '});
 
 % ----------------------------------------------------------------------

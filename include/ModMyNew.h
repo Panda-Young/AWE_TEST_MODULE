@@ -30,8 +30,10 @@
 
 #include "ModCommon.h"
 #include "MathHelper.h"
+#include <windows.h>
 #include "../source/logger.h"
 
+DWORD WINAPI threadProc(LPVOID lpParameter);
 #define MASK_MyNew_currentFrame 0x00000100
 #define OFFSET_MyNew_currentFrame 0x00000008
 

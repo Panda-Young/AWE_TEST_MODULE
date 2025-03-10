@@ -1,3 +1,4 @@
+EnterCriticalSection(&cs);
 awe_modMyNewInstance *S = (awe_modMyNewInstance *)pInstance;
 WireInstance **pWires = ClassModule_GetWires(S);
 UINT32 numSamples = ClassWire_GetNumSamples(pWires[0]);
@@ -11,3 +12,4 @@ for (i = 0; i < numSamples; i++) {
     *pDst++ = *pSrc++;
 }
 LOGD("frame %d processing...", S->currentFrame++);
+LeaveCriticalSection(&cs);
