@@ -60,5 +60,9 @@ Thumbs.db
 Debug/
 Release/
 x64/
-lib/
-lib64/
+lib/**/*
+!lib/VC2010/**/FrameDll.lib
+!lib/VC2019/**/FrameDll.lib
+lib64/**/*
+!lib64/VC2010/**/FrameDll.lib
+!lib64/VC2019/**/FrameDll.lib
