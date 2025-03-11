@@ -130,7 +130,9 @@
     <PostBuildEvent>
       <Command>if not exist "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-dbg" mkdir "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-dbg"
 	  xcopy /Y "..\..\..\Debug\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-dbg"
-	  xcopy /Y "..\..\..\Debug\MyNewDll.pdb" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-dbg"</Command>
+	  xcopy /Y "..\..\..\Debug\MyNewDll.pdb" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-dbg"
+    type nul &gt; %Temp%\myNew_AWE_MODULE.log
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -172,7 +174,9 @@
     <PostBuildEvent>
       <Command>if not exist "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-dbg" mkdir "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-dbg"
 	  xcopy /Y "..\..\..\x64\Debug\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-dbg"
-	  xcopy /Y "..\..\..\x64\Debug\MyNewDll.pdb" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-dbg"</Command>
+	  xcopy /Y "..\..\..\x64\Debug\MyNewDll.pdb" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-dbg"
+    type nul &gt; %Temp%\myNew_AWE_MODULE.log
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -214,7 +218,9 @@
     </Link>
     <PostBuildEvent>
       <Command>if not exist "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-rel" mkdir "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-rel"
-	  xcopy /Y "..\..\..\Release\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-rel"</Command>
+	  xcopy /Y "..\..\..\Release\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\win32-vc142-rel"
+    type nul &gt; %Temp%\myNew_AWE_MODULE.log
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -255,7 +261,9 @@
     </Link>
     <PostBuildEvent>
       <Command>if not exist "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-rel" mkdir "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-rel"
-	  xcopy /Y "..\..\..\x64\Release\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-rel"</Command>
+	  xcopy /Y "..\..\..\x64\Release\MyNewDll.dll" "D:\Program Files\AWE Designer 8.D.2.7.A Pro\Bin\win32-vc142-rel\..\x64-vc142-rel"
+    type nul &gt; %Temp%\myNew_AWE_MODULE.log
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
