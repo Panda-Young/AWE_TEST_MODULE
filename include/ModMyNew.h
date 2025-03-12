@@ -33,6 +33,7 @@
 #include <windows.h>
 #include "../source/logger.h"
 
+#define MYNEW_VERSION_STRING "0.1.0"
 DWORD WINAPI threadProc(LPVOID lpParameter);
 #define MASK_MyNew_currentFrame 0x00000100
 #define OFFSET_MyNew_currentFrame 0x00000008

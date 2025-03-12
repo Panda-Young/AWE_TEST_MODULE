@@ -90,6 +90,9 @@ ModInstanceDescriptor *awe_modMyNewConstructor(INT32 * FW_RESTRICT retVal, UINT3
 	}
 	
 
+    LOGI("**********************************************************\n");
+    LOGI("myNew AWE MODULE %s", MYNEW_VERSION_STRING);
+    
     UINT32 inputChannels = ClassWire_GetChannelCount(pWires[1]);
     UINT32 blockSize = ClassWire_GetBlockSize(pWires[1]);
     UINT32 nSampleRate = ClassWire_GetSampleRate(pWires[1]);

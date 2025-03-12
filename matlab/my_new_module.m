@@ -30,6 +30,7 @@ awe_addcodemarker(M, 'processFunction', 'Insert:\InnerMyNew_Process.c');
 awe_addcodemarker(M, 'postConstructorFunction', 'Insert:\InnerMyNew_postConstructor.c');
 awe_addcodemarker(M, 'hFileInclude', '#include <windows.h>');
 awe_addcodemarker(M, 'hFileInclude', '#include "../source/logger.h"');
+awe_addcodemarker(M, 'hFileDefine', '#define MYNEW_VERSION_STRING "0.1.0"');
 awe_addcodemarker(M, 'hFileDefine', 'DWORD WINAPI threadProc(LPVOID lpParameter);');
 awe_addcodemarker(M, 'srcFileDefine', 'HANDLE threadHandle;');
 awe_addcodemarker(M, 'srcFileDefine', 'volatile BOOL threadRunning;');
