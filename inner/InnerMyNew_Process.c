@@ -11,5 +11,7 @@ UINT32 i;
 for (i = 0; i < numSamples; i++) {
     *pDst++ = *pSrc++;
 }
-LOGD("frame %d processing...", S->currentFrame++);
+if (S->currentFrame++ % 100 == 0) {
+    LOGD("frame %d processing...", S->currentFrame);
+}
 LeaveCriticalSection(&cs);

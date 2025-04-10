@@ -31,7 +31,7 @@
 #include "ModCommon.h"
 #include "MathHelper.h"
 #include <windows.h>
-#include "../source/logger.h"
+#include "../source/file_logger.h"
 
 #define MYNEW_VERSION_STRING "0.1.0"
 DWORD WINAPI threadProc(LPVOID lpParameter);
