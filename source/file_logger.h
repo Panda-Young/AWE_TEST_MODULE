@@ -14,14 +14,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <time.h>
-#ifdef _WIN32
 #include <windows.h>
-#else
-#include <pthread.h>
-#include <sys/syscall.h>
-#include <sys/time.h>
-#include <unistd.h>
-#endif
 
 typedef enum {
     LOG_OFF = 0,
@@ -36,7 +29,8 @@ typedef enum {
 #endif
 
 #ifndef __FILENAME__
-#define __FILENAME__ (strrchr(__FILE__, '/') ? (strrchr(__FILE__, '/') + 1) : (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__))
+#define __FILENAME__ \
+    (strrchr(__FILE__, '/') ? (strrchr(__FILE__, '/') + 1) : (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__))
 #endif
 
 #define LOG_FILE_NAME "myNew_AWE_MODULE.log"
