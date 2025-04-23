@@ -44,4 +44,5 @@ awe_addcodemarker(M, 'discussion', {'Copies the input to the output. '});
 M.moduleBrowser.path = 'Third Party';
 M.moduleBrowser.image = '../images/MyNew.bmp';
 M.moduleBrowser.searchTags = 'pass thru through copy';
+M.shapeInfo.size = [10, 10];
 return;

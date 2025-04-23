@@ -1,5 +1,5 @@
 <designer>
-    <module type='Third Party' width='7' width.min='' width.max='' height='6' height.min='' height.max=''>
+    <module type='Third Party' width='10' width.min='' width.max='' height='10' height.min='' height.max=''>
         <browsername>My New</browsername>
         <legend>My New</legend>
         <image>../images/MyNew.bmp</image>
@@ -22,9 +22,9 @@
         <shape color='#000000' fill='#ffffff' style='0'>
         <poly>
             <point x='0' y='0' />
-            <point x='0' y='6' />
-            <point x='7' y='6' />
-            <point x='7' y='0' />
+            <point x='0' y='10' />
+            <point x='10' y='10' />
+            <point x='10' y='0' />
         </poly>
         </shape>
     </module>
